@@ -164,12 +164,22 @@ impl RPCError {
                 message: msg.to_string(),
                 data,
             },
+            RPCError::InvalidParamsString(msg) => Error {
+                code: INVALID_PARAMS_ERROR_CODE,
+                message: msg.to_string(),
+                data,
+            },
             RPCError::InvalidRequest(msg) => Error {
                 code: INVALID_REQUEST_ERROR_CODE,
                 message: msg.to_string(),
                 data,
             },
             RPCError::CustomError(code, msg) => Error {
+                code: *code,
+                message: msg.to_string(),
+                data,
+            },
+            RPCError::CustomErrorString(code, msg) => Error {
                 code: *code,
                 message: msg.to_string(),
                 data,

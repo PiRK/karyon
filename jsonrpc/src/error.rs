@@ -71,8 +71,14 @@ pub enum RPCError {
     #[error("Custom Error:  code: {0} msg: {1}")]
     CustomError(i32, &'static str),
 
+    #[error("Custom Error:  code: {0} msg: {1}")]
+    CustomErrorString(i32, String),
+
     #[error("Invalid Params: {0}")]
     InvalidParams(&'static str),
+
+    #[error("Invalid Params: {0}")]
+    InvalidParamsString(String),
 
     #[error("Invalid Request: {0}")]
     InvalidRequest(&'static str),
